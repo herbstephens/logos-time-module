@@ -1,0 +1,22 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+
+[profile.default.fuzz]
+runs = 1000
+
+[rpc_endpoints]
+logos_testnet = "${LOGOS_RPC}"
+logos_devnet  = "http://localhost:8545"
+
+[etherscan]
+logos_testnet = { key = "${LOGOS_EXPLORER_KEY}", url = "${LOGOS_EXPLORER_URL}" }
+
+remappings = [
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+]

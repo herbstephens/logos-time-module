@@ -1,0 +1,52 @@
+[package]
+name    = "logos-time"
+version = "0.1.0"
+edition = "2021"
+authors = ["Democracy Earth Foundation <herb@democracy.earth>"]
+description = "TIME Protocol — Logos Core module. Payment for work is the mint event."
+license = "MIT"
+repository = "https://github.com/DemocracyEarth/logos-time-module"
+keywords = ["logos", "time-protocol", "parallel-society", "work", "blockchain"]
+
+[lib]
+name    = "logos_time"
+crate-type = ["cdylib", "rlib"]   # cdylib for dynamic Logos Core loading
+
+[dependencies]
+# Async runtime
+tokio        = { version = "1", features = ["full"] }
+async-trait  = "0.1"
+
+# Serialization
+serde        = { version = "1", features = ["derive"] }
+serde_json   = "1"
+
+# Ethereum / ABI interaction
+ethers       = { version = "2", features = ["abigen", "ws", "rustls"] }
+alloy-primitives = "0.7"
+
+# Waku messaging
+waku-bindings = { git = "https://github.com/waku-org/waku-rust-bindings", optional = true }
+
+# Logging
+tracing      = "0.1"
+tracing-subscriber = { version = "0.3", optional = true }
+
+# Error handling
+thiserror    = "1"
+anyhow       = "1"
+
+# Config
+config       = "0.14"
+
+# Protobuf (for Waku message encoding)
+prost        = "0.12"
+
+[features]
+default   = ["waku"]
+waku      = ["waku-bindings"]
+no-waku   = []           # For testing without a live Waku node
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockall    = "0.12"

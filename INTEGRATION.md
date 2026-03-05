@@ -102,6 +102,6 @@ For Logos core contributors who want to validate this integration:
 ## Contact
 
 Democracy Earth Foundation
-- GitHub: [DemocracyEarth/logos-time-module](https://github.com/DemocracyEarth/logos-time-module)
+- GitHub: [Lodos TIME Module](https://github.com/herbstephens/logos-time-module)
 - Email: herb@democracy.earth
 - Logos Forum: post to the Logos Forum thread linking this repository
